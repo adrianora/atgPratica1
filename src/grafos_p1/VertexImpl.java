@@ -15,13 +15,14 @@ public class VertexImpl<T> implements Vertex<T> {
 
 	@Override
 	public T getData() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.data;
 	}
 
 	@Override
 	public void setData(T data) {
-		// TODO Auto-generated method stub
+		
+		this.data = data;
 
 	}
 

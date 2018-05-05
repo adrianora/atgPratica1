@@ -10,7 +10,8 @@ public class EdgeImpl<T> implements Edge<T> {
 
 	@Override
 	public void setFrom(Vertex<T> vertex) {
-		// TODO Auto-generated method stub
+		
+		this.from = vertex;
 	}
 
 	@Override
@@ -21,7 +22,8 @@ public class EdgeImpl<T> implements Edge<T> {
 
 	@Override
 	public void setTo(Vertex<T> vertex) {
-		// TODO Auto-generated method stub
+		
+		this.to = vertex;
 	}
 
 	@Override
