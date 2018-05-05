@@ -18,7 +18,7 @@ public class ManipuladorDeArquivo<T> {
 	public  List<Vertex<T>> vertexs = new ArrayList<>();
 	public  List<Edge<T>> edges = new ArrayList<>();
 	
-	public  void reader(String path) throws IOException {
+	public  void reader(String path, boolean temPeso) throws IOException {
 		
 		FileReader file = new FileReader(path);
 		BufferedReader buffRead = new BufferedReader(file);
@@ -54,6 +54,11 @@ public class ManipuladorDeArquivo<T> {
 				edge.setFrom(vertex1);
 				edge.setTo(vertex2);
 				
+				if(temPeso) {
+					
+					T weight = (T) lineArray[2];
+					edge.setWeight(weight);
+				}
 				vertex1.addEdge(edge);
 				
 				if(!vertexs.contains(vertex1)) {

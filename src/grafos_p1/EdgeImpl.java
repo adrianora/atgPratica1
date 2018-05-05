@@ -34,7 +34,8 @@ public class EdgeImpl<T> implements Edge<T> {
 
 	@Override
 	public void setWeight(T weight) {
-		// TODO Auto-generated method stub
+		
+		this.weight = weight;
 	}
 
 	@Override

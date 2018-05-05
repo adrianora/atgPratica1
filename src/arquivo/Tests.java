@@ -81,7 +81,7 @@ public class Tests<T> {
 		edges.add(edge5);
 		
 		
-		leitor.reader(path);
+		leitor.reader(path, true);
 	}
 	
 	@Test
@@ -95,6 +95,13 @@ public class Tests<T> {
 		assertEquals(this.vertexs.get(2).getData(), leitor.vertexs.get(2).getData());
 		assertEquals(this.vertexs.get(3).getData(), leitor.vertexs.get(3).getData());
 		assertEquals(this.vertexs.get(4).getData(), leitor.vertexs.get(4).getData());
+	
+		assertEquals(this.edges.get(0).getWeight(), leitor.edges.get(0).getWeight());
+		assertEquals(this.edges.get(1).getWeight(), leitor.edges.get(1).getWeight());
+		assertEquals(this.edges.get(2).getWeight(), leitor.edges.get(2).getWeight());
+		assertEquals(this.edges.get(3).getWeight(), leitor.edges.get(3).getWeight());
+		assertEquals(this.edges.get(4).getWeight(), leitor.edges.get(4).getWeight());
+	
 	}
 	
 	
