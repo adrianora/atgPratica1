@@ -7,13 +7,13 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 
 
-public class GraphBuilderImpl<T> {
+public class GraphBuilderImpl<T> implements GraphBuilder<T>{
 	
 	
 	public  List<Vertex<T>> vertexs = new ArrayList<>();
 	public  List<Edge<T>> edges = new ArrayList<>();
 	
-	public  void reader(String path, boolean temPeso) throws IOException {
+	private  void reader(String path, boolean temPeso) throws IOException {
 		
 		FileReader file = new FileReader(path);
 		BufferedReader buffRead = new BufferedReader(file);
@@ -85,5 +85,85 @@ public class GraphBuilderImpl<T> {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void addVertex(Vertex<T> from, Vertex<T> to) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getVertexNumber() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void addEdge(Vertex<T> from, Vertex<T> to) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getEdgeNumber() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public float getMeanEdge() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String graphRepresentation(String graph, String type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String BFS(String graph, String vertice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String DFS(String graph, String vertice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String SCC(String graph) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String shortestPath(String v1, String v2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String mst(String graph) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void readGraph(String path) throws IOException {
+		
+		this.reader(path, false);
+		
+	}
+
+	@Override
+	public void readWeightedGraph(String path) throws IOException {
+		
+		this.reader(path, true);
+		
 	}
 }

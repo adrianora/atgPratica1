@@ -82,7 +82,7 @@ public class GraphBuilderTest<T> {
 		edges.add(edge5);
 		
 		
-		leitor.reader(path, true);
+		leitor.readWeightedGraph(path);;
 	}
 	
 	@Test
