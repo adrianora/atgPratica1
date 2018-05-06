@@ -1,4 +1,4 @@
-package arquivo;
+package grafos_p1_tests;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import grafos_p1.Edge;
 import grafos_p1.EdgeImpl;
+import grafos_p1.GraphBuilderImpl;
 import grafos_p1.Vertex;
 import grafos_p1.VertexImpl;
 
@@ -16,9 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Tests<T> {
+public class GraphBuilderTest<T> {
 
-	ManipuladorDeArquivo<T> leitor;
+	GraphBuilderImpl<T> leitor;
 	
 	List<Edge<T>> edges = new ArrayList<>();
 	List<Vertex<T>> vertexs = new ArrayList<>();
@@ -27,7 +28,7 @@ public class Tests<T> {
 	@Before
 	public void setUp() throws IOException {
 		
-		leitor = new ManipuladorDeArquivo<>();
+		leitor = new GraphBuilderImpl<>();
 		Vertex<T> vertex1 = new VertexImpl<>();
 		vertex1.setData((T) "1");
 		

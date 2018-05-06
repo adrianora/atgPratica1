@@ -1,4 +1,4 @@
-package arquivo;
+package grafos_p1;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,13 +6,8 @@ import java.util.List;
 import java.io.FileReader;
 import java.io.BufferedReader;
 
-import grafos_p1.Edge;
-import grafos_p1.EdgeImpl;
-import grafos_p1.Vertex;
-import grafos_p1.VertexImpl;
 
-
-public class ManipuladorDeArquivo<T> {
+public class GraphBuilderImpl<T> {
 	
 	
 	public  List<Vertex<T>> vertexs = new ArrayList<>();
