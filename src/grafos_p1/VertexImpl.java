@@ -55,5 +55,12 @@ public class VertexImpl<T> implements Vertex<T> {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public int getVertexNumber(Graph graph) {
+		// Falta eu ver essa parte melhor. Mas pelos exemplos que eu vi o numero de vertices eh o numero de arestas -1 
+		int vertexNumber = graph.getEdgeNumber() - 1;
+		
+		return vertexNumber;
+	}
 
 }

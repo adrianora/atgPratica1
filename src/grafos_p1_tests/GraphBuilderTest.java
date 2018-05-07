@@ -10,7 +10,7 @@ import grafos_p1.GraphBuilderImpl;
 import grafos_p1.Vertex;
 import grafos_p1.VertexImpl;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
