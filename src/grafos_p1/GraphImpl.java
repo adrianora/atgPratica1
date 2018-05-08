@@ -22,8 +22,7 @@ public class GraphImpl<T> implements Graph<T> {
 
 	@Override
 	public int getVertexNumber() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.vertices.size();
 	}
 
 	@Override
@@ -34,8 +33,7 @@ public class GraphImpl<T> implements Graph<T> {
 
 	@Override
 	public int getEdgeNumber() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.arestas.size();
 	}
 
 	@Override
