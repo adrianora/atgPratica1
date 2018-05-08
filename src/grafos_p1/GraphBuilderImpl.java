@@ -143,7 +143,9 @@ public class GraphBuilderImpl<T> implements GraphBuilder<T>{
 
 	@Override
 	public String shortestPath(String v1, String v2) {
-		// TODO Auto-generated method stub
+		if(v1==v2) {
+			return v1;
+		}
 		return null;
 	}
 

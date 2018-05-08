@@ -41,6 +41,7 @@ public class GraphImpl<T> implements Graph<T> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	 
 
 	@Override
 	public String graphRepresentation(String graph, String type) {
@@ -56,10 +57,17 @@ public class GraphImpl<T> implements Graph<T> {
 
 	@Override
 	public String DFS(String graph, String vertice) {
-		// TODO Auto-generated method stub
+		int branco = 0;
+		int cinza = 1;
+		int preto = 2;
+		
+		
+		
+		
 		return null;
 	}
-
+	
+	
 	@Override
 	public String SCC(String graph) {
 		// TODO Auto-generated method stub
