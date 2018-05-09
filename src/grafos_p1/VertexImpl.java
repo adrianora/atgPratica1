@@ -15,52 +15,55 @@ public class VertexImpl<T> implements Vertex<T> {
 
 	@Override
 	public T getData() {
-		
 		return this.data;
 	}
 
 	@Override
 	public void setData(T data) {
-		
 		this.data = data;
-
 	}
 
 	@Override
 	public boolean addEdge(Edge<T> edge) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.edges.add(edge);
 	}
 
 	@Override
 	public boolean removeEdge(Edge<T> edge) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.edges.remove(edge);
 	}
 
 	@Override
 	public boolean hasEdge(Edge<T> edge) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Vertex<T> getVertex(int indexEdge) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.edges.contains(edge);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.edges.isEmpty();
 	}
-	
-	public int getVertexNumber(Graph graph) {
-		// Falta eu ver essa parte melhor. Mas pelos exemplos que eu vi o numero de vertices eh o numero de arestas -1 
-		int vertexNumber = graph.getEdgeNumber() - 1;
-		
-		return vertexNumber;
+
+	@Override
+	public int getNumberOfEdges() {
+		return this.edges.size();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		VertexImpl<T> other = (VertexImpl<T>) obj;
+		if (data == null) {
+			if (other.data != null)
+				return false;
+		} else if (!data.equals(other.data))
+			return false;
+		return true;
 	}
 
 }

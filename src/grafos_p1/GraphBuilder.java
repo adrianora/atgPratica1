@@ -12,7 +12,8 @@ public interface GraphBuilder<T> extends Graph<T> {
 	 * A biblioteca deve ler um grafo a partir de um arquivo de texto. O grafo sera
 	 * descrito segundo o seguinte formato: a primeira linha informa o numero de
 	 * vertices do grafo. Cada linha subsequente informa as arestas do mesmo.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	void readGraph(String path) throws IOException;
 
@@ -21,7 +22,8 @@ public interface GraphBuilder<T> extends Graph<T> {
 	 * grafos nao-direcionados que possuam pesos nas arestas. Os pesos, que serao
 	 * representados por valores reais, devem estar associados as arestas. O arquivo
 	 * de entrada agora tera uma terceira coluna, que representa o peso da aresta.
-	 * @throws IOException 
+	 * 
+	 * @throws IOException
 	 */
 	void readWeightedGraph(String path) throws IOException;
 

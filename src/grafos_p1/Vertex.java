@@ -16,12 +16,10 @@ public interface Vertex<T> {
 
 	boolean hasEdge(Edge<T> edge);
 
-	/**
-	 * Retorna um vertice conectado dado o indice de sua aresta. Se o vertice nao
-	 * tiver conectado deve retornar null.
-	 */
-	Vertex<T> getVertex(int indexEdge);
+	int getNumberOfEdges();
 
 	boolean isEmpty();
+
+	boolean equals(Object obj);
 
 }

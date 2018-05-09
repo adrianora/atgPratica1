@@ -18,7 +18,7 @@ public class VertexTests {
 	
 	@Test
 	public void verticeIsEmpty() {
-		Assert.assertEquals(false, this.vertice.isEmpty());
+		Assert.assertEquals(true, this.vertice.isEmpty());
 	}
 
 }

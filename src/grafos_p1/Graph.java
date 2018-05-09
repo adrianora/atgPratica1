@@ -1,5 +1,7 @@
 package grafos_p1;
 
+import java.util.List;
+
 /**
  * A estrutura gerencia a conexao e integridade entre vertices e arestas. Por
  * ser um grafo nao-orientado nao teremos vertice raiz. Arestas carregam consigo
@@ -11,13 +13,15 @@ package grafos_p1;
  */
 public interface Graph<T> {
 
-	void addVertex(Vertex<T> from, Vertex<T> to);
+	boolean addVertex(Vertex<T> vertex);
 
 	int getVertexNumber();
 
-	void addEdge(Vertex<T> from, Vertex<T> to);
+	boolean addEdge(Vertex<T> from, Vertex<T> to, float weight);
 
 	int getEdgeNumber();
+
+	List<Vertex<T>> getVertices();
 
 	/**
 	 * @return grau medio

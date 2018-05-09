@@ -7,16 +7,12 @@ package grafos_p1;
  */
 public interface Edge<T> {
 
-	void setFrom(Vertex<T> vertex);
-
-	Vertex<T> getFrom();
-
 	void setTo(Vertex<T> vertex);
 
 	Vertex<T> getTo();
 
-	void setWeight(T weight);
+	void setWeight(float weight);
 
-	T getWeight();
+	float getWeight();
 
 }
