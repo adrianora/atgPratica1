@@ -3,7 +3,7 @@ package grafos_p1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VertexImpl<T> implements Vertex<T>{
+public class VertexImpl<T extends Comparable<T>> implements Vertex<T>, Comparable<VertexImpl<T>>{
 
 	private T data;
 
@@ -69,5 +69,13 @@ public class VertexImpl<T> implements Vertex<T>{
 			return false;
 		return true;
 	}
-
+	
+	/** CompareTo vai ser usado para o metodo grapRepresentation, o qual organiza
+	 * os vertices em ordem crscente
+	 */
+	@Override
+	public int compareTo(VertexImpl<T> otherVertex) {
+	
+		return this.data.compareTo(otherVertex.getData());		
+	}
 }
