@@ -106,6 +106,11 @@ public class GraphImpl<T> implements Graph<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	private String grapRepresentationAM(){
+		
+		return null;
+	}
 
 	@Override
 	public String BFS(String graph, String vertice) {

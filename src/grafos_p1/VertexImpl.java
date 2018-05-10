@@ -3,7 +3,7 @@ package grafos_p1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VertexImpl<T> implements Vertex<T> {
+public class VertexImpl<T> implements Vertex<T>{
 
 	private T data;
 
