@@ -44,30 +44,16 @@ public class GraphBuilderTest<T> {
 		Vertex<T> vertex5 = new VertexImpl<>();
 		vertex5.setData((T) "5");
 		
-		Edge<T> edge1 = new EdgeImpl<>();
-		edge1.setFrom(vertex1);
-		edge1.setTo(vertex2);
-		vertex1.addEdge(edge1);
+		Edge<T> edge1 = new EdgeImpl<>(vertex2, (float) 0.1);
+
+		Edge<T> edge2 = new EdgeImpl<>(vertex5, (float) 0.2);
 		
-		Edge<T> edge2 = new EdgeImpl<>();
-		edge2.setFrom(vertex2);
-		edge2.setTo(vertex5);
-		vertex2.addEdge(edge2);
+		Edge<T> edge3 = new EdgeImpl<>(vertex3, (float) 5);
 		
-		Edge<T> edge3 = new EdgeImpl<>();
-		edge3.setFrom(vertex5);
-		edge3.setTo(vertex3);
-		vertex5.addEdge(edge3);
-		
-		Edge<T> edge4 = new EdgeImpl<>();
-		edge4.setFrom(vertex4);
-		edge4.setTo(vertex5);
-		vertex4.addEdge(edge4);
-		
-		Edge<T> edge5 = new EdgeImpl<>();
-		edge5.setFrom(vertex1);
-		edge5.setTo(vertex5);
-		vertex1.addEdge(edge5);
+		Edge<T> edge4 = new EdgeImpl<>(vertex5, (float) 2.3);
+
+		Edge<T> edge5 = new EdgeImpl<>(vertex5, (float) 1);
+
 		
 		vertexs.add(vertex1);
 		vertexs.add(vertex2);
@@ -82,13 +68,12 @@ public class GraphBuilderTest<T> {
 		edges.add(edge5);
 		
 		
-		leitor.readWeightedGraph(path);;
+		leitor.readWeightedGraph(path);
 	}
 	
 	@Test
 	public void test() {
 		
-		assertEquals(this.edges.size(), leitor.getEdges().size());
 		assertEquals(this.vertexs.size(), leitor.getVertices().size());
 		
 		assertEquals(this.vertexs.get(0).getData(), leitor.getVertices().get(0).getData());
@@ -97,11 +82,12 @@ public class GraphBuilderTest<T> {
 		assertEquals(this.vertexs.get(3).getData(), leitor.getVertices().get(3).getData());
 		assertEquals(this.vertexs.get(4).getData(), leitor.getVertices().get(4).getData());
 	
-		assertEquals(this.edges.get(0).getWeight(), leitor.getEdges().get(0).getWeight(), 0);
-		assertEquals(this.edges.get(1).getWeight(), leitor.getEdges().get(1).getWeight(), 0);
-		assertEquals(this.edges.get(2).getWeight(), leitor.getEdges().get(2).getWeight(), 0);
-		assertEquals(this.edges.get(3).getWeight(), leitor.getEdges().get(3).getWeight(), 0);
-		assertEquals(this.edges.get(4).getWeight(), leitor.getEdges().get(4).getWeight(), 0);
+		
+		assertEquals(this.edges.get(0).getWeight(), leitor.getVertices().get(0).getEdges().get(0).getWeight(), 0.1);
+		assertEquals(this.edges.get(1).getWeight(), leitor.getVertices().get(1).getEdges().get(0).getWeight(), 0.2);
+		assertEquals(this.edges.get(2).getWeight(), leitor.getVertices().get(2).getEdges().get(0).getWeight(), 5.0);
+		assertEquals(this.edges.get(4).getWeight(),leitor.getVertices().get(4).getEdges().get(0).getWeight(), 2.3);
+		assertEquals(this.edges.get(0).getWeight(), leitor.getVertices().get(0).getEdges().get(1).getWeight(), 1.0);
 	
 	}
 	

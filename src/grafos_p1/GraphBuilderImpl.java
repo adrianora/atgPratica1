@@ -50,13 +50,13 @@ public class GraphBuilderImpl<T> extends GraphImpl<T> implements GraphBuilder<T>
 
 				Edge<T> edge = new EdgeImpl<>();
 
-				edge.setFrom(vertex1);
 				edge.setTo(vertex2);
 
 				if (temPeso) {
 
 					T weight = (T) lineArray[2];
-					edge.setWeight((float) weight);
+					float weightFloat = Float.parseFloat((String)weight);
+					edge.setWeight(weightFloat);
 				}
 				vertex1.addEdge(edge);
 
@@ -66,7 +66,6 @@ public class GraphBuilderImpl<T> extends GraphImpl<T> implements GraphBuilder<T>
 				if (!this.getVertices().contains(vertex2)) {
 					this.getVertices().add(vertex2);
 				}
-				this.getEdges().add(edge);
 			}
 
 			line = buffRead.readLine();

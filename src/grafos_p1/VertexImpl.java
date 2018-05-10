@@ -22,6 +22,10 @@ public class VertexImpl<T> implements Vertex<T> {
 	public void setData(T data) {
 		this.data = data;
 	}
+	
+	public List<Edge<T>> getEdges(){
+		return this.edges;
+	}
 
 	@Override
 	public boolean addEdge(Edge<T> edge) {
