@@ -1,4 +1,4 @@
-package grafos_p1;
+package graph.p1;
 
 public class DFS {
 

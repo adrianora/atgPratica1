@@ -1,11 +1,11 @@
-package grafos_p1_tests;
+package tests;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import grafos_p1.Vertex;
-import grafos_p1.VertexImpl;
+import graph.p1.Vertex;
+import graph.p1.VertexImpl;
 
 public class VertexTests {
 	
@@ -13,7 +13,7 @@ public class VertexTests {
 	
 	@Before
 	public void setUp() {
-		vertice = new VertexImpl<>();		
+		vertice = new VertexImpl<>();
 	}
 	
 	@Test

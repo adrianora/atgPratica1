@@ -1,5 +1,5 @@
 package auxiliares;
-import grafos_p1.*;
+import graph.p1.*;
 
 public class DSF {
 	

@@ -1,5 +1,6 @@
-package grafos_p1;
+package graph.p1;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ public interface Graph<T> {
 
 	int getVertexNumber();
 
-	boolean addEdge(Vertex<T> from, Vertex<T> to, float weight);
+	boolean addEdge(Vertex<T> from, Vertex<T> to, double weight);
 
 	int getEdgeNumber();
 
@@ -26,7 +27,7 @@ public interface Graph<T> {
 	/**
 	 * @return grau medio
 	 */
-	float getMeanEdge();
+	double getMeanEdge();
 
 	/**
 	 * Representacao de grafos. A biblioteca deve ser capaz de representar grafos
@@ -38,7 +39,7 @@ public interface Graph<T> {
 	 * @param type
 	 * @return
 	 */
-	String graphRepresentation(String graph, String type);
+	int[][] graphRepresentation(String type);
 
 	/**
 	 * Busca em grafos: largura e profundidade. A biblioteca deve ser capaz de
@@ -88,7 +89,7 @@ public interface Graph<T> {
 	 * @param v2
 	 * @return
 	 */
-	String shortestPath(String v1, String v2);
+	String shortestPath(Vertex<T> from, Vertex<T> to);
 
 	/**
 	 * Arvore geradora minima. A biblioteca deve ser capaz de encontrar uma arvore
@@ -97,5 +98,24 @@ public interface Graph<T> {
 	 * vertice e seu nivel na String de saida (semelhante ao metodo BFS(graph, v)).
 	 */
 	String mst(String graph);
+	
+	/**
+	 * A biblioteca deve ler um grafo a partir de um arquivo de texto. O grafo sera
+	 * descrito segundo o seguinte formato: a primeira linha informa o numero de
+	 * vertices do grafo. Cada linha subsequente informa as arestas do mesmo.
+	 * 
+	 * @throws IOException
+	 */
+	void readGraph(String path) throws IOException;
+
+	/**
+	 * Grafos com pesos. A biblioteca deve ser capaz de representar e manipular
+	 * grafos nao-direcionados que possuam pesos nas arestas. Os pesos, que serao
+	 * representados por valores reais, devem estar associados as arestas. O arquivo
+	 * de entrada agora tera uma terceira coluna, que representa o peso da aresta.
+	 * 
+	 * @throws IOException
+	 */
+	void readWeightedGraph(String path) throws IOException;
 
 }

@@ -1,4 +1,4 @@
-package grafos_p1_exceptions;
+package graph.p1.exceptions;
 
 public class VertexDoesNotExistException extends Exception {
 

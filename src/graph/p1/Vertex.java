@@ -1,4 +1,4 @@
-package grafos_p1;
+package graph.p1;
 
 import java.util.List;
 
@@ -6,11 +6,17 @@ import java.util.List;
  * Todo vertice carrega consigo uma lista de arestas com suas coneccoes em
  * relacao aos demais vertices.
  */
-public interface Vertex<T> {
+public interface Vertex<T> extends Comparable<Vertex<T>> {
+	
+	boolean isMarked();
+	
+	void setTrueMark();
+	
+	void setFalseMark();
 
-	T getData();
+	int getData();
 
-	void setData(T data);
+	void setData(int data);
 	
 	List<Edge<T>> getEdges();
 
@@ -19,6 +25,8 @@ public interface Vertex<T> {
 	boolean removeEdge(Edge<T> edge);
 
 	boolean hasEdge(Edge<T> edge);
+	
+	boolean haveVertex(Vertex<T> vertex);
 
 	int getNumberOfEdges();
 

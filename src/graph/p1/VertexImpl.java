@@ -1,11 +1,13 @@
-package grafos_p1;
+package graph.p1;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class VertexImpl<T extends Comparable<T>> implements Vertex<T>, Comparable<VertexImpl<T>>{
+public class VertexImpl<T> implements Vertex<T> {
 
-	private T data;
+	private Integer data;
+
+	private boolean mark;
 
 	private List<Edge<T>> edges;
 
@@ -14,16 +16,34 @@ public class VertexImpl<T extends Comparable<T>> implements Vertex<T>, Comparabl
 	}
 
 	@Override
-	public T getData() {
+	public boolean isMarked() {
+		if (mark)
+			return true;
+		else
+			return false;
+	}
+
+	@Override
+	public void setTrueMark() {
+		this.mark = true;
+	}
+	
+	@Override
+	public void setFalseMark() {
+		this.mark = false;
+	}
+
+	@Override
+	public int getData() {
 		return this.data;
 	}
 
 	@Override
-	public void setData(T data) {
+	public void setData(int data) {
 		this.data = data;
 	}
-	
-	public List<Edge<T>> getEdges(){
+
+	public List<Edge<T>> getEdges() {
 		return this.edges;
 	}
 
@@ -43,6 +63,15 @@ public class VertexImpl<T extends Comparable<T>> implements Vertex<T>, Comparabl
 	}
 
 	@Override
+	public boolean haveVertex(Vertex<T> vertex) {
+		for (int i = 0; i < getEdges().size(); i++) {
+			if (getEdges().get(i).getTo().equals(vertex))
+				return true;
+		}
+		return false;
+	}
+
+	@Override
 	public boolean isEmpty() {
 		return this.edges.isEmpty();
 	}
@@ -51,8 +80,7 @@ public class VertexImpl<T extends Comparable<T>> implements Vertex<T>, Comparabl
 	public int getNumberOfEdges() {
 		return this.edges.size();
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -61,7 +89,7 @@ public class VertexImpl<T extends Comparable<T>> implements Vertex<T>, Comparabl
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		VertexImpl<T> other = (VertexImpl<T>) obj;
+		VertexImpl other = (VertexImpl) obj;
 		if (data == null) {
 			if (other.data != null)
 				return false;
@@ -69,13 +97,19 @@ public class VertexImpl<T extends Comparable<T>> implements Vertex<T>, Comparabl
 			return false;
 		return true;
 	}
-	
-	/** CompareTo vai ser usado para o metodo grapRepresentation, o qual organiza
-	 * os vertices em ordem crscente
+
+	/**
+	 * CompareTo vai ser usado para o metodo grapRepresentation, o qual organiza os
+	 * vertices em ordem crscente
 	 */
 	@Override
-	public int compareTo(VertexImpl<T> otherVertex) {
-	
-		return this.data.compareTo(otherVertex.getData());		
+	public int compareTo(Vertex<T> otherVertex) {
+		if (getData() > otherVertex.getData())
+			return 1;
+		else if (getData() < otherVertex.getData())
+			return -1;
+		else
+			return 0;
 	}
+	
 }

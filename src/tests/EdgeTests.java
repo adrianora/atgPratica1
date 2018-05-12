@@ -1,4 +1,4 @@
-package grafos_p1_tests;
+package tests;
 
 public class EdgeTests {
 
