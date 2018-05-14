@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import auxiliares.DSF;
 import graph.p1.exceptions.VertexDoesNotExistException;
 
 public class GraphImpl<T> implements Graph<T> {
@@ -190,6 +191,7 @@ public class GraphImpl<T> implements Graph<T> {
 		}
 		System.out.println();
 	}
+	
 
 	@Override
 	public String BFS(String graph, String vertice) {
@@ -201,6 +203,7 @@ public class GraphImpl<T> implements Graph<T> {
 	public String DFS(String graph, String vertice) {
 		// TODO Auto-generated method stub
 		return null;
+		
 	}
 
 	@Override

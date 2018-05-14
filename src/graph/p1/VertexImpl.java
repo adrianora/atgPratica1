@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VertexImpl<T> implements Vertex<T> {
-
+	
 	private Integer data;
 
 	private boolean mark;
