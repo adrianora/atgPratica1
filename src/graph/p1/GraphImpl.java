@@ -99,7 +99,7 @@ public class GraphImpl<T> implements Graph<T> {
 	}
 
 	@Override
-	public int[][] graphRepresentation(String type) {
+	public double[][] graphRepresentation(String type) {
 		if (type.equals("AM"))
 			return grapRepresentationAm();
 		else if (type.equals("AL"))
@@ -108,9 +108,9 @@ public class GraphImpl<T> implements Graph<T> {
 			return null;
 	}
 
-	private int[][] grapRepresentationAm() {
+	private double[][] grapRepresentationAm() {
 		int size = vertices.size();
-		int matrix[][] = new int[size][size];
+		double matrix[][] = new double[size][size];
 		ArrayList<Vertex<T>> orderedArray = copyOrderedVerticesArray();
 
 		buildingRelationships(orderedArray, matrix);
@@ -120,11 +120,20 @@ public class GraphImpl<T> implements Graph<T> {
 		return matrix;
 	}
 
-	private void buildingRelationships(ArrayList<Vertex<T>> array, int[][] matrix) {
+	private void buildingRelationships(ArrayList<Vertex<T>> array, double[][] matrix) {
 		for (int i = 0; i < array.size(); i++) {
 			for (int j = 0; j < array.size(); j++) {
-				if (array.get(i).haveVertex(array.get(j)))
-					matrix[i][j] += 1;
+				
+				Edge<T> edge = array.get(i).haveVertex(array.get(j));
+				
+				if (edge!= null)
+					
+					if (edge.getWeight() > 0) {
+						matrix[i][j] = edge.getWeight();
+					}
+					else {
+						matrix[i][j] = 1;
+					}
 				else
 					matrix[i][j] = 0;
 			}
@@ -138,11 +147,21 @@ public class GraphImpl<T> implements Graph<T> {
 		System.out.println();
 	}
 
-	private void printColumnsOfVertices(ArrayList<Vertex<T>> array, int[][] matrix) {
+	private void printColumnsOfVertices(ArrayList<Vertex<T>> array, double[][] matrix) {
 		for (int i = 0; i < array.size(); i++) {
 			System.out.print(i + 1);
-			for (int j = 0; j < array.size(); j++)
+			for (int j = 0; j < array.size(); j++) {
+				double e = matrix[i][j];
+				
+				if ( e % 1 == 0) {
+					
+					System.out.print(" " + (int)matrix[i][j]);
+				}
+				else {
+					
 				System.out.print(" " + matrix[i][j]);
+				}
+			}
 			System.out.println();
 		}
 	}
@@ -154,9 +173,9 @@ public class GraphImpl<T> implements Graph<T> {
 		return newArray;
 	}
 
-	private int[][] grapRepresentationAl() {
+	private double[][] grapRepresentationAl() {
 		int size = vertices.size();
-		int matrix[][] = new int[size][size];
+		double matrix[][] = new double[size][size];
 		ArrayList<Vertex<T>> array = copyOrderedVerticesArray();
 
 		buildingConnections(array, matrix);
@@ -166,7 +185,7 @@ public class GraphImpl<T> implements Graph<T> {
 		return matrix;
 	}
 
-	private void buildingConnections(ArrayList<Vertex<T>> array, int[][] matrix) {
+	private void buildingConnections(ArrayList<Vertex<T>> array, double[][] matrix) {
 		for (int i = 0; i < array.size(); i++) {
 			for (int j = 0; j < array.get(i).getEdges().size(); j++)
 				matrix[i][j] = array.get(i).getEdges().get(j).getTo().getData();
@@ -180,12 +199,19 @@ public class GraphImpl<T> implements Graph<T> {
 		}
 	}
 
-	private void printAdjacencyList(ArrayList<Vertex<T>> array, int[][] matrix) {
+	private void printAdjacencyList(ArrayList<Vertex<T>> array, double[][] matrix) {
 		for (int i = 0; i < array.size(); i++) {
 			System.out.print(array.get(i).getData() + " -");
 			for (int j = 0; j < array.get(i).getEdges().size(); j++) {
 				matrix[i][j] = array.get(i).getEdges().get(j).getTo().getData();
-				System.out.print(" " + matrix[i][j]);
+				
+				if(matrix[i][j] % 1 == 0){
+					
+					System.out.print(" " + (int)matrix[i][j]);
+				}
+				else {
+					System.out.print(" " + (int)matrix[i][j]);
+				}
 			}
 			System.out.println();
 		}

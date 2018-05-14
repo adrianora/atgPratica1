@@ -26,7 +26,7 @@ public interface Vertex<T> extends Comparable<Vertex<T>> {
 
 	boolean hasEdge(Edge<T> edge);
 	
-	boolean haveVertex(Vertex<T> vertex);
+	Edge<T> haveVertex(Vertex<T> vertex);
 
 	int getNumberOfEdges();
 

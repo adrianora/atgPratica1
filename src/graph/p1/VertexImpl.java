@@ -63,12 +63,12 @@ public class VertexImpl<T> implements Vertex<T> {
 	}
 
 	@Override
-	public boolean haveVertex(Vertex<T> vertex) {
+	public Edge<T> haveVertex(Vertex<T> vertex) {
 		for (int i = 0; i < getEdges().size(); i++) {
 			if (getEdges().get(i).getTo().equals(vertex))
-				return true;
+				return getEdges().get(i);
 		}
-		return false;
+		return null;
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class VertexImpl<T> implements Vertex<T> {
 
 	/**
 	 * CompareTo vai ser usado para o metodo grapRepresentation, o qual organiza os
-	 * vertices em ordem crscente
+	 * vertices em ordem crescente
 	 */
 	@Override
 	public int compareTo(Vertex<T> otherVertex) {

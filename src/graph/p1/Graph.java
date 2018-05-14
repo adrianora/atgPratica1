@@ -39,7 +39,7 @@ public interface Graph<T> {
 	 * @param type
 	 * @return
 	 */
-	int[][] graphRepresentation(String type);
+	double[][] graphRepresentation(String type);
 
 	/**
 	 * Busca em grafos: largura e profundidade. A biblioteca deve ser capaz de
