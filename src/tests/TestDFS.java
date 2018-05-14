@@ -16,7 +16,7 @@ import graph.p1.Vertex;
 public class TestDFS<T> {
 	
 	Graph<Integer> graph;
-	DSF dsf;
+	DSF<T> dsf;
 	Vertex<T> root;
 	
 	String path = "src/tests/entradaText.txt";
@@ -63,6 +63,6 @@ public class TestDFS<T> {
 	@Test
 	public void generatingTreeRepresentation() {
 		
-		this.dsf.printGeneratingTree();
+		System.out.println(this.graph.DFS(path, 1));
 	}
 }

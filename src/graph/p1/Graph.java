@@ -67,7 +67,7 @@ public interface Graph<T> {
 	 * @param vertice
 	 * @return
 	 */
-	String DFS(String graph, String vertice);
+	String DFS(String graph, Integer vertice);
 
 	/**
 	 * Componentes fortemente conectados. A biblioteca deve ser capaz descobrir os

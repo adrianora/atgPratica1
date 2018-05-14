@@ -198,11 +198,21 @@ public class GraphImpl<T> implements Graph<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 
 	@Override
-	public String DFS(String graph, String vertice) {
-		// TODO Auto-generated method stub
-		return null;
+	public String DFS(String graph, Integer vertice) {
+		
+		this.cleanAllMarks();
+		
+		DSF<T> dsf = new DSF<T>(this.getVertices());
+		Vertex<T> vertex = this.getVertex(vertice, this.getVertices());
+		
+		dsf.depthSearch(vertex);
+		String tree = dsf.printGeneratingTree();
+	
+		return tree;
 		
 	}
 

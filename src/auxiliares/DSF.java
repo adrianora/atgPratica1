@@ -9,9 +9,9 @@ public class DSF<T> {
 	int matriz[][];
 	int size;
 	
-	public DSF(List<Vertex<T>> vertices) {
+	public DSF(List<Vertex<T>> newVertices) {
 		
-		this.vertices = vertices;
+		this.vertices = newVertices;
 		size = this.vertices.size();
 		matriz = new int[size][2];
 	}
@@ -21,33 +21,34 @@ public class DSF<T> {
 		return this.matriz;
 	}
 	
-	
-	public <T> void depthSearch(Vertex<T> vertex) {
+	public void depthSearch(Vertex<T> vertex) {
 		
 		Vertex<T> thisGraphVertex = this.getObjectVertexOnGraph(vertex);
 		
 		this.depthSearch(thisGraphVertex, null, 0);
 	}
 	
-	public void printGeneratingTree(){
+	public String printGeneratingTree(){
+		
+		String result = "";
 		
 		for (int i = 0; i < this.size; i++) {
-			
-			for(int j = 0; j < 2; j++) {
 				
 				int father = this.matriz[i][0];
 				int level = this.matriz[i][1];
 				
 				if (father == 0) {
 				
-					System.out.println((i + 1)+"-"+level+" -");
+					result += ((i + 1)+" - "+level+" -"+"\n");
 				}
 				else { 
 					
-					System.out.println((i + 1)+"-"+level+" "+father);
-				}
+					result += ((i + 1)+" - "+level+" "+father+"\n");
+				
 			}
 		}
+		
+		return result;
 	}
 	
 	private <T> void depthSearch(Vertex<T> vertex, Vertex<T> father, int level) {
@@ -77,7 +78,7 @@ public class DSF<T> {
 		this.matriz[vertex.getData() - 1][1] = level;
 	}
 	
-	private <T> Vertex<T> getObjectVertexOnGraph(Vertex<T> vertex) {
+	private  Vertex<T> getObjectVertexOnGraph(Vertex<T> vertex) {
 		
 		Vertex<T> result = null;
 		
