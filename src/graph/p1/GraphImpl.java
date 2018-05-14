@@ -205,9 +205,17 @@ public class GraphImpl<T> implements Graph<T> {
 			for (int j = 0; j < array.get(i).getEdges().size(); j++) {
 				matrix[i][j] = array.get(i).getEdges().get(j).getTo().getData();
 				
-				if(matrix[i][j] % 1 == 0){
+				Edge<T> edge = array.get(i).getEdges().get(j);
+				double weight = edge.getWeight();
+				if(weight > 0){
 					
-					System.out.print(" " + (int)matrix[i][j]);
+					if(weight % 1 == 0) {
+						
+						System.out.print(" " + (int)matrix[i][j] + "(" + (int)weight + ")");
+					}else {
+					
+						System.out.print(" " + (int)matrix[i][j] + "(" + weight + ")");
+					}
 				}
 				else {
 					System.out.print(" " + (int)matrix[i][j]);
