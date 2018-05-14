@@ -23,9 +23,7 @@ public class DSF<T> {
 	
 	public void depthSearch(Vertex<T> vertex) {
 		
-		Vertex<T> thisGraphVertex = this.getObjectVertexOnGraph(vertex);
-		
-		this.depthSearch(thisGraphVertex, null, 0);
+		this.depthSearch(vertex, null, 0);
 	}
 	
 	public String printGeneratingTree(){
@@ -77,21 +75,4 @@ public class DSF<T> {
 	
 		this.matriz[vertex.getData() - 1][1] = level;
 	}
-	
-	private  Vertex<T> getObjectVertexOnGraph(Vertex<T> vertex) {
-		
-		Vertex<T> result = null;
-		
-		if (this.vertices.contains(vertex)) {
-			
-			int indexOfVertex = this.vertices.indexOf(vertex);
-			
-			if (indexOfVertex != -1) {
-			
-				result = (Vertex<T>) this.vertices.get(indexOfVertex);
-			}
-		}
-		return result;
-	}
-
 }
