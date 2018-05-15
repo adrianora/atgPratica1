@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 import auxiliares.DSF;
+import auxiliares.ShortPath;
 import graph.p1.exceptions.VertexDoesNotExistException;
 
 public class GraphImpl<T> implements Graph<T> {
@@ -258,8 +259,14 @@ public class GraphImpl<T> implements Graph<T> {
 
 	@Override
 	public String shortestPath(Vertex<T> from, Vertex<T> to) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		ShortPath sp = new ShortPath(this.getVertices());
+		this.cleanAllMarks();
+		
+		String pathRepresentation = sp.shortPath(from, to.getData());
+		System.out.println(pathRepresentation);
+		
+		return pathRepresentation;
 	}
 	
 	private void cleanAllMarks() {
