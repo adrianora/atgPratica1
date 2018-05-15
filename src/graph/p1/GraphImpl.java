@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 import auxiliares.DSF;
+import auxiliares.BFS;
 import auxiliares.ShortPath;
 import graph.p1.exceptions.VertexDoesNotExistException;
 
@@ -229,9 +230,17 @@ public class GraphImpl<T> implements Graph<T> {
 	
 
 	@Override
-	public String BFS(String graph, String vertice) {
-		// TODO Auto-generated method stub
-		return null;
+	public String BFS(String graph, Integer vertice) {
+		
+		this.cleanAllMarks();
+
+		BFS<T> bfs = new BFS<T>(this.getVertices());
+		Vertex<T> vertex = this.getVertex(vertice, this.getVertices());
+
+		bfs.breadthSearch(vertex);
+		String tree = bfs.printGeneratingTree();
+
+		return tree;
 	}
 	
 	

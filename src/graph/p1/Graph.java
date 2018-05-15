@@ -53,7 +53,7 @@ public interface Graph<T> {
 	 * @param vertice
 	 * @return
 	 */
-	String BFS(String graph, String vertice);
+	String BFS(String graph, Integer vertice);
 
 	/**
 	 * Busca em grafos: largura e profundidade. A biblioteca deve ser capaz de
