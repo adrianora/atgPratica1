@@ -89,7 +89,7 @@ public interface Graph<T> {
 	 * @param v2
 	 * @return
 	 */
-	String shortestPath(Vertex<T> to, Vertex<T> from);
+	String shortestPath(Vertex<T> from, Vertex<T> to);
 
 	/**
 	 * Arvore geradora minima. A biblioteca deve ser capaz de encontrar uma arvore
