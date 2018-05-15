@@ -97,14 +97,4 @@ public class GraphTest<T> {
 		assertEquals(5, this.graph.getEdgeNumber(), 0);
 	}
 	
-	@Test
-	public void shortestPathTest() {
-		Vertex<Integer> fromVertex = new VertexImpl<>();
-		fromVertex.setData(1);
-		Vertex<Integer> toVertex = new VertexImpl<>();
-		toVertex.setData(3);
-		
-		this.graph.shortestPath(fromVertex, toVertex);
-	}
-	
 }

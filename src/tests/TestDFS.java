@@ -1,6 +1,7 @@
 package tests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 
@@ -8,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import auxiliares.DSF;
-import graph.p1.DFS;
 import graph.p1.Graph;
 import graph.p1.GraphImpl;
 import graph.p1.Vertex;
