@@ -79,7 +79,7 @@ public interface Graph<T> {
 	 * @param graph
 	 * @return
 	 */
-	String SCC(String graph);
+	boolean SCC(String graph);
 
 	/**
 	 * Caminho minimo. A biblioteca deve ser capaz de encontrar o caminho mais curto

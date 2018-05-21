@@ -261,9 +261,19 @@ public class GraphImpl<T> implements Graph<T> {
 	}
 
 	@Override
-	public String SCC(String graph) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean SCC(String graph) {
+		
+		boolean conect = false;
+		
+		for (Vertex<T> vertex : vertices) {
+			
+			if(vertex.isMarked() == true) {
+			
+				conect = true;
+			}
+			conect = false;
+		}
+		return conect;		
 	}
 
 	@Override
